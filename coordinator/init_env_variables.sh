@@ -1,0 +1,1 @@
+export WORKING_DIR=/home/matheus/IC/pipeline/coordinator/

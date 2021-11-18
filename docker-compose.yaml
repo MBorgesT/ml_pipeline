@@ -5,7 +5,7 @@ services:
     mongo: 
         image: mongo
         ports:
-            - 5001:27017
+            - 5002:27017
         environment:
             MONGO_INITDB_ROOT_USERNAME: root
             MONGO_INITDB_ROOT_PASSWORD: root
@@ -13,7 +13,7 @@ services:
     postgres:
         image: postgres
         ports:
-            - 5002:5432
+            - 5003:5432
         environment:
             POSTGRES_USER: root
             POSTGRES_PASSWORD: root
@@ -23,7 +23,7 @@ services:
         volumes:
             - ./coordinator:/usr/src/coordinator
         ports:
-            - 5000:80
+            - 5001:80
         depends_on:
             - mongo
             - postgres
