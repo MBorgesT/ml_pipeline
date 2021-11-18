@@ -1,0 +1,15 @@
+artifact_uri: file:///home/matheus/IC/pipeline/coordinator/mlruns/0/35f901e1d54549a8a0426ceb9f13a11d/artifacts
+end_time: 1637110120515
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+name: ''
+run_id: 35f901e1d54549a8a0426ceb9f13a11d
+run_uuid: 35f901e1d54549a8a0426ceb9f13a11d
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1637110112132
+status: 3
+tags: []
+user_id: matheus
