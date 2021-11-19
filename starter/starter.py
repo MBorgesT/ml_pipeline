@@ -1,7 +1,7 @@
 import requests
 
-url = 'http://localhost:5000/'
-file = 'FRA3-FRA6_cleaned_feature_engineered.csv'
+url = 'http://localhost:5001/pipeline'
+file = 'datasets/ds1.csv'
 
 with open(file, 'rb') as f:
     r = requests.post(url, files={'file': f})

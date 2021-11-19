@@ -1,14 +1,19 @@
+import os
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3' 
+
 from tensorflow import keras
 from tensorflow.keras import layers
 
 import mlflow
 import mlflow.keras
+mlflow.set_tracking_uri('http://mlflow:5004/')
 
 from datetime import datetime
 import os
 
-WORKING_DIR = os.environ['WORKING_DIR']
-MODEL_PATH = WORKING_DIR + '/coordinator/pipeline_modules/ml/model.h5'
+
+WORKING_DIR = os.environ['WORKDIRPATH']
+MODEL_PATH = WORKING_DIR + '/coordinator/'
 
 
 def get_model(input_shape, dropout=.18, lr=.001):

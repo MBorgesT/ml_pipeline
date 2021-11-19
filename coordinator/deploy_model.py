@@ -3,7 +3,7 @@ import os
 from shutil import copyfile
 
 
-WORKING_DIR = os.environ['WORKING_DIR']
+WORKING_DIR = os.environ['WORKDIRPATH']
 RUNS_PATH = WORKING_DIR + 'mlruns/0/'
 
 

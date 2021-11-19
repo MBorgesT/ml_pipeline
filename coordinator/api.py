@@ -5,8 +5,15 @@ from werkzeug.exceptions import HTTPException
 from pipeline import pipeline
 import deploy_model
 
+
 app = Flask(__name__)
 api = Api(app)
+
+
+class Test(Resource):
+
+    def get(self):
+        return 'working'
 
 
 class Pipeline(Resource):
@@ -25,9 +32,10 @@ class Deploy(Resource):
         return 'worked?'
 
 
-api.add_resource(Pipeline, '/pipeline/')
-api.add_resource(Deploy, '/deploy_model/')
+api.add_resource(Test, '/')
+api.add_resource(Pipeline, '/pipeline')
+api.add_resource(Deploy, '/deploy_model')
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', debug=True, port=80)
+    app.run(host='0.0.0.0', debug=True, port=8085)

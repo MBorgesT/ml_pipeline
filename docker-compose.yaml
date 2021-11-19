@@ -18,12 +18,20 @@ services:
             POSTGRES_USER: root
             POSTGRES_PASSWORD: root
 
+    mlflow:
+        build: ./mlflow
+        volumes:
+            - ./mlflow:/usr/src/mlflow
+        ports:
+            - 5004:5000
+
     coordinator:
         build: ./coordinator
         volumes:
             - ./coordinator:/usr/src/coordinator
         ports:
-            - 5001:80
+            - 5001:8085
         depends_on:
             - mongo
             - postgres
+            - mlflow
