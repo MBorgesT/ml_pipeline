@@ -1,0 +1,41 @@
+version: "3.9"
+
+services:
+
+    mongo: 
+        image: mongo
+        ports:
+            - 5002:27017
+        environment:
+            MONGO_INITDB_ROOT_USERNAME: root
+            MONGO_INITDB_ROOT_PASSWORD: root
+    
+    postgres:
+        image: postgres
+        ports:
+            - 5003:5432
+        environment:
+            POSTGRES_USER: root
+            POSTGRES_PASSWORD: root
+
+    mlflow:
+        image: 'atcommons/mlflow-server'
+        build: ./mlflow
+        ports:
+            - "5004:5000"
+        volumes:
+            - "./mlflow/data:/mlflow"
+        environment:
+            BACKEND_URI: sqlite:////mlflow/mlflow.db
+            ARTIFACT_ROOT: /mlflow/artifacts
+
+    coordinator:
+        build: ./coordinator
+        volumes:
+            - ./coordinator:/usr/src/coordinator
+        ports:
+            - 5001:8085
+        depends_on:
+            - mongo
+            - postgres
+            - mlflow

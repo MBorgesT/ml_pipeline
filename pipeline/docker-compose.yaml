@@ -20,10 +20,11 @@ services:
 
     mlflow:
         build: ./mlflow
-        volumes:
-            - ./mlflow:/usr/src/mlflow
+        container_name: mlflow
+        expose: 
+            - "5000"
         ports:
-            - 5004:5000
+            - "5004:5000"
 
     coordinator:
         build: ./coordinator

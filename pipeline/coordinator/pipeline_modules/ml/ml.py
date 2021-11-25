@@ -6,7 +6,10 @@ from tensorflow.keras import layers
 
 import mlflow
 import mlflow.keras
-mlflow.set_tracking_uri('http://mlflow:5004/')
+mlflow.set_tracking_uri('http://mlflow:5000/')
+#mlflow.set_tracking_uri('http://localhost:5004/')
+#mlflow.set_experiment("my-experiment")
+
 
 from datetime import datetime
 import os
