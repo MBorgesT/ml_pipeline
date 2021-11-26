@@ -6,9 +6,12 @@ from tensorflow.keras import layers
 
 import mlflow
 import mlflow.keras
-mlflow.set_tracking_uri('http://mlflow:5000/')
+mlflow.set_tracking_uri('http://mlflow-server:5000/')
 #mlflow.set_tracking_uri('http://localhost:5004/')
-#mlflow.set_experiment("my-experiment")
+mlflow.set_experiment('default')
+
+print('tracking uri:', mlflow.get_tracking_uri())
+print('artifact uri:', mlflow.get_artifact_uri())
 
 
 from datetime import datetime
@@ -37,7 +40,12 @@ def get_model(input_shape, dropout=.18, lr=.001):
     return model
 
 
-def train_model(X, y, n_epochs=10, batch_size=32):
+def train_model(X, y, n_epochs=5, batch_size=32):
+    try:
+        mlflow.end_run()
+    except:
+        None
+
     with mlflow.start_run():
         try:
             model = keras.models.load_model(MODEL_PATH)

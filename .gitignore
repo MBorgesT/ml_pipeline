@@ -1,1 +1,2 @@
 coordinator/mlruns
+pipeline/coordinator/mlflow-data/artifacts/
